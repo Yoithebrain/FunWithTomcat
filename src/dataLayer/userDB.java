@@ -33,8 +33,8 @@ public class userDB {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT id, username, password FROM users WHERE username = \"" +
-                    sUserName + "\" AND password = \"" + sUserPassword + "\"";
+            sql = "SELECT id, user_name, user_passwordr FROM users WHERE user_name = \"" +
+                    sUserName + "\" AND user_passwordr = \"" + sUserPassword + "\"";
 
             System.out.println(sql);
 
