@@ -8,11 +8,11 @@ import java.sql.*;
 public class userDB {
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/dat16B";
+    //static final String DB_URL = "jdbc:mysql://localhost/dat16B";
 
     //  Database credentials
-    static final String USER = "dat16buser";
-    static final String PASS = "123";
+    //static final String USER = "dat16buser";
+    //static final String PASS = "123";
 
 
     public boolean isValidUserLogin(String sUserName, String sUserPassword){
@@ -27,7 +27,13 @@ public class userDB {
 
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            //conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            String DB_Url = System.getProperty("JDBC_CONNECTION_STRING");
+            String DB_User = System.getProperty("JDBC_USER");
+            String DB_Password = System.getProperty("JDBC_PASSWORD");
+            String DB_Connection_String = DB_Url + "?user=" + DB_User + "&password=" + DB_Password;
+
+            conn = DriverManager.getConnection(DB_Connection_String);
 
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
